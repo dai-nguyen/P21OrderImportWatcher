@@ -144,21 +144,7 @@ namespace P21OrderImportWatcher
             }
         }
 
-        protected override void OnStart(string[] args)
-        {
-            Initialize();
-        }
-
-        protected override void OnStop()
-        {
-            _source.Cancel();
-            _watcher.EnableRaisingEvents = false;
-            _watcher.Dispose();
-            _timer.Dispose();
-            _source.Dispose();
-        }
-
-        Config GetConfig()
+        private Config GetConfig()
         {
             try
             {
@@ -172,6 +158,20 @@ namespace P21OrderImportWatcher
             }
             catch { }
             return null;
+        }
+
+        protected override void OnStart(string[] args)
+        {
+            Initialize();
+        }
+
+        protected override void OnStop()
+        {
+            _source.Cancel();
+            _watcher.EnableRaisingEvents = false;
+            _watcher.Dispose();
+            _timer.Dispose();
+            _source.Dispose();
         }
     }
 }
