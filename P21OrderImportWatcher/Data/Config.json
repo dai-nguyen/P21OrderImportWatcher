@@ -1,0 +1,24 @@
+﻿{
+	"WaitInSeconds": 60,
+	"ActiveFolder": "C:\\Users\\Dai\\Desktop\\active",
+	"ErrorFolder": "C:\\Users\\Dai\\Desktop\\error",
+	"SummaryFolder": "C:\\Users\\Dai\\Desktop\\summary"
+	"EmailTos": [ "RECIPIENT" ],
+	"DefaultMail": "DbMail",
+	"DbMail": {
+		"Server": "YOUR SERVER",
+		"Db": "YOUR DB",
+		"StoredProcedure": "STORED PROCEDURE",
+		"Profile": "YOUR PROFILE NAME",
+		"User": "YOUR USER",
+		"Pass": "YOUR PASSWORD"
+	},
+	"SmtpMail": {
+		"SmtpHost": "smtp.gmail.com",
+		"SmtpPort": 25,
+		"SmtpUser": "YOUR EMAIL",
+		"SmtpPass": "YOUR PASSWORD",
+		"EnableSSL": 1,
+		"EmailFrom": "YOUR EMAIL",		
+	},
+}
