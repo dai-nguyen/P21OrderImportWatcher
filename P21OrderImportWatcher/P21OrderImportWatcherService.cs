@@ -66,7 +66,6 @@ namespace P21OrderImportWatcher
                     if (File.Exists(sumfile) && IsImportSucceeded(sumfile))
                     {
                         file.Result = "Imported";
-                        Console.WriteLine(string.Format("{0} imported successfully", file.FileName));
                     }
                     else
                     {
@@ -127,10 +126,7 @@ namespace P21OrderImportWatcher
                     var succeeded = await service.CreateAsync(new FileImport
                     {
                         FileName = e.Name
-                    }, _source.Token);
-
-                    string msg = succeeded != null ? "is created and saved" : "is created but FAILED to save";
-                    Console.WriteLine(string.Format("{0} {1}", e.Name, msg));
+                    }, _source.Token);                    
                 }
             }
             else if (e.ChangeType == WatcherChangeTypes.Deleted && e.Name.StartsWith("WOH"))
@@ -142,10 +138,7 @@ namespace P21OrderImportWatcher
                     if (found != null)
                     {
                         found.DateDeleted = DateTime.Now;
-                        var succeeded = await service.UpdateAsync(found, _source.Token);
-
-                        string msg = succeeded != null ? "is deleted and updated" : "is deleted but FAILED to update";
-                        Console.WriteLine(string.Format("{0} {1}", e.Name, msg));
+                        var succeeded = await service.UpdateAsync(found, _source.Token);                        
                     }
                 }
             }
